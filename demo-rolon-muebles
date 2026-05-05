@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rolón Muebles Infantiles | Demo ATB IT Solutions</title>
+  <meta name="description" content="Demo no oficial de catálogo web para Rolón Muebles Infantiles con consultas directas por WhatsApp." />
+  <style>
+    :root {
+      --bg: #fbf7f0;
+      --bg-soft: #fffaf3;
+      --text: #2b211c;
+      --muted: #7b6b61;
+      --card: #ffffff;
+      --wood: #9a5b31;
+      --wood-dark: #5c321f;
+      --aqua: #11b7bd;
+      --aqua-dark: #07898e;
+      --rose: #eaa0a8;
+      --cream: #fff0d7;
+      --green: #25d366;
+      --border: rgba(92, 50, 31, .14);
+      --shadow: 0 20px 60px rgba(92, 50, 31, .14);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at 20% 0%, #fff4df 0, var(--bg) 38%, #f6eee3 100%);
+      color: var(--text);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .top-demo-bar {
+      background: #10232a;
+      color: #e8fbff;
+      text-align: center;
+      font-size: 13px;
+      padding: 8px 16px;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(251, 247, 240, .88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      max-width: 1180px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 1000;
+      letter-spacing: -.2px;
+    }
+
+    .brand img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 2px solid white;
+      box-shadow: 0 8px 22px rgba(17,183,189,.20);
+      background: white;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .nav-links a:hover { color: var(--aqua-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 19px;
+      font-weight: 1000;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--aqua), var(--aqua-dark));
+      color: white;
+      box-shadow: 0 16px 34px rgba(17,183,189,.24);
+    }
+    .btn-whatsapp {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 16px 34px rgba(37,211,102,.22);
+    }
+    .btn-secondary {
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--wood-dark);
+    }
+    .btn-instagram {
+      background: linear-gradient(135deg, #f97316, #db2777, #7c3aed);
+      color: white;
+    }
+
+    .hero {
+      max-width: 1180px;
+      margin: auto;
+      padding: 70px 20px 46px;
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      gap: 8px;
+      align-items: center;
+      padding: 8px 13px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--aqua-dark);
+      font-size: 13px;
+      font-weight: 1000;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: .96;
+      letter-spacing: -2.5px;
+      color: var(--wood-dark);
+    }
+    .highlight { color: var(--aqua-dark); }
+    .hero p {
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.7;
+      margin: 22px 0 28px;
+      max-width: 630px;
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+    .hero-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .hero-card img {
+      width: 100%;
+      height: 430px;
+      object-fit: cover;
+      border-radius: 26px;
+    }
+    .hero-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .mini-stat {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 14px 10px;
+      text-align: center;
+      font-weight: 900;
+    }
+    .mini-stat b { display: block; color: var(--aqua-dark); font-size: 20px; }
+    .mini-stat span { color: var(--muted); font-size: 12px; }
+
+    section {
+      max-width: 1180px;
+      margin: auto;
+      padding: 58px 20px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 20px;
+      margin-bottom: 26px;
+    }
+    .section-head h2 {
+      margin: 0;
+      color: var(--wood-dark);
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing: -1.5px;
+    }
+    .section-head p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .category-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 22px;
+      box-shadow: 0 12px 34px rgba(92,50,31,.08);
+    }
+    .category-card .icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: #dff8f9;
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+    .category-card h3 { margin: 0 0 8px; color: var(--wood-dark); }
+    .category-card p { margin: 0; color: var(--muted); line-height: 1.5; font-size: 14px; }
+
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .product-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 16px 42px rgba(92,50,31,.10);
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card img {
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
+      background: #eee;
+    }
+    .product-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+    .tag {
+      width: fit-content;
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 1000;
+      background: #dff8f9;
+      color: var(--aqua-dark);
+      margin-bottom: 10px;
+    }
+    .product-body h3 { margin: 0 0 8px; color: var(--wood-dark); font-size: 22px; }
+    .product-body p { margin: 0 0 14px; color: var(--muted); line-height: 1.55; flex: 1; }
+    .product-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 16px;
+    }
+    .product-meta span {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      color: var(--wood-dark);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 7px 9px;
+      border-radius: 999px;
+    }
+
+    .customizer {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: 24px;
+      align-items: start;
+      background: linear-gradient(135deg, white, #fff6e8);
+      border: 1px solid var(--border);
+      border-radius: 34px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .customizer h2 { margin: 0 0 12px; font-size: clamp(30px, 4vw, 46px); color: var(--wood-dark); }
+    .customizer p { color: var(--muted); line-height: 1.65; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    label {
+      display: block;
+      font-size: 13px;
+      font-weight: 1000;
+      color: var(--wood-dark);
+      margin-bottom: 7px;
+    }
+    select, input {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 16px;
+      padding: 13px 14px;
+      color: var(--text);
+      font-size: 15px;
+      outline: none;
+    }
+    .full { grid-column: 1 / -1; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .step {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 20px;
+    }
+    .step b {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--aqua);
+      color: white;
+      margin-bottom: 12px;
+    }
+    .step h3 { color: var(--wood-dark); margin: 0 0 8px; }
+    .step p { color: var(--muted); line-height: 1.55; margin: 0; }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 26px;
+      box-shadow: 0 14px 36px rgba(92,50,31,.08);
+    }
+    .contact-card h3 { margin-top: 0; color: var(--wood-dark); font-size: 26px; }
+    .contact-card p { color: var(--muted); line-height: 1.6; }
+    .map-placeholder {
+      min-height: 290px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #dff8f9, #fff0d7);
+      border: 1px solid var(--border);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      color: var(--wood-dark);
+    }
+
+    .floating-whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 80;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      box-shadow: 0 18px 42px rgba(37,211,102,.35);
+    }
+
+    footer {
+      text-align: center;
+      padding: 28px 20px;
+      background: #10232a;
+      color: #e8fbff;
+      margin-top: 30px;
+    }
+    footer small { display: block; color: #b7d7dc; margin-top: 8px; }
+
+    @media (max-width: 940px) {
+      .hero, .customizer, .contact-box { grid-template-columns: 1fr; }
+      .catalog-grid { grid-template-columns: 1fr 1fr; }
+      .grid-4, .steps { grid-template-columns: 1fr 1fr; }
+      .nav-links { display: none; }
+      .section-head { flex-direction: column; align-items: start; }
+    }
+
+    @media (max-width: 640px) {
+      .catalog-grid, .grid-4, .steps, .form-grid, .hero-mini { grid-template-columns: 1fr; }
+      .hero { padding-top: 42px; }
+      .hero-card img { height: 330px; }
+      .product-card img { height: 260px; }
+      h1 { letter-spacing: -1.6px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-demo-bar">
+    Demo no oficial creada por ATB IT Solutions. Fotos, precios, medidas y datos finales deben ser validados por Rolón Muebles Infantiles.
+  </div>
+
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#inicio">
+        <img src="img/Rolon-Muebles.jpeg" alt="Logo Rolón Muebles Infantiles" />
+        <span>Rolón Muebles Infantiles</span>
+      </a>
+      <div class="nav-links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#personalizar">Personalizar</a>
+        <a href="#como-comprar">Cómo comprar</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="inicio" class="hero">
+    <div>
+      <div class="eyebrow">🪵 Muebles infantiles · A medida · Consultas por WhatsApp</div>
+      <h1>Muebles infantiles pensados para cada <span class="highlight">espacio.</span></h1>
+      <p>
+        Catálogo web para que el cliente vea modelos, elija el tipo de mueble y envíe una consulta ordenada por WhatsApp con los detalles del producto.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#catalogo">Ver catálogo</a>
+        <a class="btn btn-whatsapp" href="https://wa.me/595994653292?text=Hola%2C%20quiero%20consultar%20por%20un%20mueble" target="_blank" rel="noopener">💬 Consultar por WhatsApp</a>
+        <a class="btn btn-secondary" href="#personalizar">Personalizar mueble</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <img src="img/cuna.jpeg" alt="Cuna infantil blanca Rolón Muebles" />
+      <div class="hero-mini">
+        <div class="mini-stat"><b>Catálogo</b><span>por categorías</span></div>
+        <div class="mini-stat"><b>WhatsApp</b><span>mensaje automático</span></div>
+        <div class="mini-stat"><b>A medida</b><span>según consulta</span></div>
+      </div>
+    </aside>
+  </main>
+
+  <section>
+    <div class="section-head">
+      <h2>Elegí por categoría</h2>
+      <p>Una forma simple para que el cliente no tenga que buscar entre muchas publicaciones de Instagram.</p>
+    </div>
+    <div class="grid-4">
+      <article class="category-card"><div class="icon">🛏️</div><h3>Cunas</h3><p>Modelos para bebés, cunas funcionales y opciones personalizadas.</p></article>
+      <article class="category-card"><div class="icon">🧸</div><h3>Muebles infantiles</h3><p>Cómodas, organizadores y muebles para dormitorio infantil.</p></article>
+      <article class="category-card"><div class="icon">🚪</div><h3>Roperos</h3><p>Roperos en madera, combinados y con distribución a medida.</p></article>
+      <article class="category-card"><div class="icon">🪑</div><h3>Complementos</h3><p>Mecedoras, repisas y muebles especiales para el hogar.</p></article>
+    </div>
+  </section>
+
+  <section id="catalogo">
+    <div class="section-head">
+      <h2>Catálogo destacado</h2>
+      <p>Productos de ejemplo. Cada botón genera una consulta directa al WhatsApp con el nombre del mueble seleccionado.</p>
+    </div>
+
+    <div class="catalog-grid">
+      <article class="product-card">
+        <img src="img/comoda.jpeg" alt="Cómoda blanca infantil" />
+        <div class="product-body">
+          <span class="tag">Cómodas</span>
+          <h3>Cómoda blanca infantil</h3>
+          <p>Cómoda con cajones y espacio lateral, ideal para dormitorio infantil o habitación de bebé.</p>
+          <div class="product-meta"><span>Color blanco</span><span>Cajones</span><span>A medida</span></div>
+          <a class="btn btn-whatsapp product-btn" data-product="Cómoda blanca infantil" href="#">💬 Consultar</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="img/cuna.jpeg" alt="Cuna infantil blanca" />
+        <div class="product-body">
+          <span class="tag">Cunas</span>
+          <h3>Cuna infantil blanca</h3>
+          <p>Cuna de madera en color blanco, diseño limpio y resistente para habitación de bebé.</p>
+          <div class="product-meta"><span>Madera</span><span>Blanco</span><span>Infantil</span></div>
+          <a class="btn btn-whatsapp product-btn" data-product="Cuna infantil blanca" href="#">💬 Consultar</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="img/kit-comoda.jpeg" alt="Kit cómoda con cambiador y repisa" />
+        <div class="product-body">
+          <span class="tag">Combos</span>
+          <h3>Kit cómoda + cambiador</h3>
+          <p>Conjunto para habitación de bebé con cómoda, cambiador y repisa superior.</p>
+          <div class="product-meta"><span>Combo</span><span>Cambiador</span><span>Repisa</span></div>
+          <a class="btn btn-whatsapp product-btn" data-product="Kit cómoda con cambiador y repisa" href="#">💬 Consultar</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="img/Mesedora.jpeg" alt="Mecedora tapizada de madera" />
+        <div class="product-body">
+          <span class="tag">Mecedoras</span>
+          <h3>Mecedora tapizada</h3>
+          <p>Mecedora de madera con tapizado, ideal para dormitorio, sala o espacio de lactancia.</p>
+          <div class="product-meta"><span>Madera</span><span>Tapizado</span><span>Disponible</span></div>
+          <a class="btn btn-whatsapp product-btn" data-product="Mecedora tapizada de madera" href="#">💬 Consultar</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="img/ropero-escala.jpeg" alt="Ropero combinado blanco y madera" />
+        <div class="product-body">
+          <span class="tag">Roperos</span>
+          <h3>Ropero combinado</h3>
+          <p>Ropero con puertas, cajones y combinación de madera con frentes claros.</p>
+          <div class="product-meta"><span>Cajones</span><span>Puertas</span><span>Combinado</span></div>
+          <a class="btn btn-whatsapp product-btn" data-product="Ropero combinado blanco y madera" href="#">💬 Consultar</a>
+        </div>
+      </article>
+
+      <article class="product-card">
+        <img src="img/Ropero.jpeg" alt="Ropero infantil blanco y madera" />
+        <div class="product-body">
+          <span class="tag">Roperos</span>
+          <h3>Ropero infantil</h3>
+          <p>Ropero alto con cajones inferiores y diseño moderno para dormitorio infantil.</p>
+          <div class="product-meta"><span>Infantil</span><span>Moderno</span><span>A medida</span></div>
+          <a class="btn btn-whatsapp product-btn" data-product="Ropero infantil blanco y madera" href="#">💬 Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="personalizar">
+    <div class="customizer">
+      <div>
+        <div class="eyebrow">📋 Consulta guiada</div>
+        <h2>Personalizá tu mueble y enviá la consulta.</h2>
+        <p>
+          El cliente selecciona el tipo de mueble, color, medida y detalle adicional. La web arma un mensaje automático para WhatsApp, así Rolón recibe consultas más claras.
+        </p>
+      </div>
+      <form id="customForm">
+        <div class="form-grid">
+          <div>
+            <label for="tipo">Tipo de mueble</label>
+            <select id="tipo">
+              <option>Cuna</option>
+              <option>Cómoda</option>
+              <option>Ropero</option>
+              <option>Mecedora</option>
+              <option>Combo dormitorio infantil</option>
+              <option>Mueble a medida</option>
+            </select>
+          </div>
+          <div>
+            <label for="color">Color / terminación</label>
+            <select id="color">
+              <option>Blanco</option>
+              <option>Madera natural</option>
+              <option>Blanco + madera</option>
+              <option>Color personalizado</option>
+              <option>Consultar opciones</option>
+            </select>
+          </div>
+          <div>
+            <label for="medida">Medida aproximada</label>
+            <input id="medida" type="text" placeholder="Ej: 1,20 x 0,80 / a medida" />
+          </div>
+          <div>
+            <label for="opcional">Opcional</label>
+            <select id="opcional">
+              <option>Sin opcional</option>
+              <option>Con cajones</option>
+              <option>Con cambiador</option>
+              <option>Con repisa</option>
+              <option>Con diseño personalizado</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="detalle">Detalle adicional</label>
+            <input id="detalle" type="text" placeholder="Ej: enviar fotos, consultar precio y tiempo de entrega" />
+          </div>
+          <div class="full">
+            <button class="btn btn-whatsapp" type="submit">💬 Enviar consulta por WhatsApp</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <section id="como-comprar">
+    <div class="section-head">
+      <h2>Cómo comprar</h2>
+      <p>Un proceso simple para transformar visitas en consultas reales.</p>
+    </div>
+    <div class="steps">
+      <article class="step"><b>1</b><h3>Elegí modelo</h3><p>El cliente navega el catálogo y elige una referencia.</p></article>
+      <article class="step"><b>2</b><h3>Personalizá</h3><p>Selecciona tipo, color, medidas y opcionales.</p></article>
+      <article class="step"><b>3</b><h3>Consultá</h3><p>Envía la consulta ordenada por WhatsApp.</p></article>
+      <article class="step"><b>4</b><h3>Presupuesto</h3><p>Rolón responde precio, plazo y condiciones.</p></article>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="section-head">
+      <h2>Contacto y redes</h2>
+      <p>La página junta WhatsApp, Instagram, ubicación y catálogo en un solo lugar.</p>
+    </div>
+    <div class="contact-box">
+      <div class="contact-card">
+        <h3>Rolón Muebles Infantiles</h3>
+        <p><strong>WhatsApp:</strong> 0994 653292</p>
+        <p><strong>Instagram:</strong> @muebles.rolon</p>
+        <p><strong>Ubicación:</strong> según Google Maps</p>
+        <div class="hero-actions">
+          <a class="btn btn-whatsapp" href="https://wa.me/595994653292?text=Hola%2C%20quiero%20consultar%20por%20un%20mueble" target="_blank" rel="noopener">💬 WhatsApp</a>
+          <a class="btn btn-instagram" href="https://www.instagram.com/muebles.rolon" target="_blank" rel="noopener">📸 Instagram</a>
+          <a class="btn btn-secondary" href="https://maps.app.goo.gl/pZX33DJXg8J5xK8y5" target="_blank" rel="noopener">📍 Google Maps</a>
+        </div>
+      </div>
+      <div class="map-placeholder">
+        <div>
+          <h3>Mapa integrado</h3>
+          <p>Acá se puede insertar el mapa real del negocio o dejar un botón directo a Google Maps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <a class="floating-whatsapp" href="https://wa.me/595994653292?text=Hola%2C%20quiero%20consultar%20por%20un%20mueble" target="_blank" rel="noopener" aria-label="WhatsApp">☏</a>
+
+  <footer>
+    <div>Rolón Muebles Infantiles · Demo comercial</div>
+    <small>Diseño demo por ATB IT Solutions · Catálogos web, WhatsApp inteligente y páginas para negocios</small>
+  </footer>
+
+  <script>
+    const phone = "595994653292";
+
+    function openWhatsapp(message) {
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, "_blank", "noopener");
+    }
+
+    document.querySelectorAll(".product-btn").forEach((button) => {
+      button.addEventListener("click", (event) => {
+        event.preventDefault();
+        const product = button.dataset.product;
+        const message = `Hola, quiero consultar por este mueble:\n\nProducto: ${product}\n\n¿Me pasan precio, medidas disponibles y tiempo de entrega?`;
+        openWhatsapp(message);
+      });
+    });
+
+    document.getElementById("customForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const tipo = document.getElementById("tipo").value;
+      const color = document.getElementById("color").value;
+      const medida = document.getElementById("medida").value || "A definir";
+      const opcional = document.getElementById("opcional").value;
+      const detalle = document.getElementById("detalle").value || "Consultar precio y tiempo de entrega";
+      const message = `Hola, quiero consultar por un mueble:\n\nTipo: ${tipo}\nColor / terminación: ${color}\nMedida aproximada: ${medida}\nOpcional: ${opcional}\nDetalle: ${detalle}`;
+      openWhatsapp(message);
+    });
+  </script>
+</body>
+</html>
